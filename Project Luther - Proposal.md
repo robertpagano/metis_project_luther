@@ -4,7 +4,7 @@
 
 Robert Pagano
 
-####Scope
+#### Scope
 
 In June of 2018, Rob Manfred, the commisioner of Major League Baseball, noted that attendance was down nearly 10% from the previous year. This marked the 6th season in a row of declining attendance. While the league is experimenting with rule changes to help make the game more attractive to the casual fan, I am more interested in looking into specific teams, and what could be causing their own attendance issues.
 
