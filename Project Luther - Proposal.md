@@ -42,7 +42,7 @@ Predicting the attendance of games by home-team
 - Win differential
 - Run differential
 - Number of wins last 10 games
-- Mean team runs scored per game
+- Mean team runs scored last 10 games (changed for whole season)
 - Opp. team runs scored per game
 - W-L record opposing teams
 - Team salary
