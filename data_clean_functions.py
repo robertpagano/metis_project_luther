@@ -6,7 +6,7 @@ def rename_columns(df):
 	"""
 	this will clean up some of the names already existing from bbref
 	"""
-	df = df.rename(columns={'Unnamed: 4': 'home_or_away', 'R': 'runs_scored', 'RA': 'runs_allowed'}, inplace=True)
+	df = df.rename(columns={'Unnamed: 4': 'home_or_away', 'R': 'runs_scored', 'RA': 'runs_allowed'}, inplace = True)
 	return df
 
 
@@ -16,7 +16,7 @@ def filter_columns(df):
 	"""
 	cols_to_keep = ['Attendance', 'Gm#', 'Date', 'Tm', 'home_or_away', 'Opp', 'W/L', 'runs_scored', 'runs_allowed', 'W-L', 'Rank', 'GB', 'Time', 'D/N', 'Streak']
 	# return df[[cols_to_keep]]
-	df.drop(['Unnamed: 2', 'Win', 'Loss', 'Save', 'Inn', 'Orig. Scheduled'], axis=1, inplace = True)
+	# df.drop(['Unnamed: 2', 'Win', 'Loss', 'Save', 'Inn', 'Orig. Scheduled'], axis=1, inplace = True)
 	df = df[cols_to_keep]
 	return df
 
@@ -88,17 +88,17 @@ def calc_run_diff(df):
 # 	df = df['Attendance', 'Gm#', 'Date', 'Tm', 'home_or_away', 'Opp', 'W/L', 'runs_scored', 'runs_allowed', 'W-L', 'Rank', 'GB', 'Time', 'D/N', 'Streak', 'Total_wins', 'Total_losses', 'Win_differential', 'win_value', 'Wins_last_10', 'Mean_runs_last_10', 'cum_runs_scored', 'cum_runs_allowed', 'run_differential']
 # 	return df
 
-# def clean_team(df):
-# 	rename_columns(df)
-# 	df = filter_columns(df)
-# 	clean_GB_col(df)
-# 	clean_home_away(df)
-# 	split_win_loss(df)
-# 	calc_run_diff(df)
-# 	count_cum_wins(df)
-# 	calc_mean_runs_last_10(df)
-# 	calc_run_diff(df)
-# 	return df
+def clean_team(df):
+	df = rename_columns(df)
+	df = filter_columns(df)
+	# df = clean_GB_col(df)
+	# df = clean_home_away(df)
+	# df = split_win_loss(df)
+	# df = calc_run_diff(df)
+	# df = count_cum_wins(df)
+	# df = calc_mean_runs_last_10(df)
+	# df = calc_run_diff(df)
+	return df
 
 
 
