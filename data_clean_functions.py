@@ -6,7 +6,7 @@ def rename_columns(df):
 	"""
 	this will clean up some of the names already existing from bbref
 	"""
-	df = df.rename(columns={'Unnamed: 4': 'home_or_away', 'R': 'runs_scored', 'RA': 'runs_allowed'}, inplace = True)
+	df = df.rename(columns={'R': 'runs_scored', 'RA': 'runs_allowed', 'HomeGame': 'home_or_away'}, inplace = True)
 	return df
 
 
@@ -16,7 +16,7 @@ def filter_columns(df):
 	"""
 	cols_to_keep = ['Attendance', 'Gm#', 'Date', 'Tm', 'home_or_away', 'Opp', 'W/L', 'runs_scored', 'runs_allowed', 'W-L', 'Rank', 'GB', 'Time', 'D/N', 'Streak']
 	# return df[[cols_to_keep]]
-	# df.drop(['Unnamed: 2', 'Win', 'Loss', 'Save', 'Inn', 'Orig. Scheduled'], axis=1, inplace = True)
+	df.drop(['Win', 'Loss', 'Save', 'Inn', 'Orig. Scheduled'], axis=1, inplace = True)
 	df = df[cols_to_keep]
 	return df
 
@@ -28,16 +28,19 @@ def clean_GB_col(df):
 	df['GB'] = df['GB'].str.replace('Tied', '0')
 	df['GB'] = df['GB'].str.replace('up ', '')
 	df['GB'] = df['GB'].str.replace('down ', '')
+	df['GB'] = df['GB'].str.replace('up', '')
+	df['GB'] = df['GB'].str.replace('down', '')
 	df['GB'] = pd.to_numeric(df['GB'])
 	return df
 
 
-def clean_home_away(df):
-	"""
-	this will clean up the home/away column so 'home' can be filtered on
-	"""
-	df['home_or_away'].fillna(value='Home', inplace=True)
-	return df
+# def clean_home_away(df):
+# 	"""
+# 	this will clean up the home/away column so 'home' can be filtered on
+#	this is deprecated now that I have a boolean home or away
+# 	"""
+# 	df['home_or_away'].fillna(value='Home', inplace=True)
+# 	return df
 
 
 def split_win_loss(df):
@@ -64,6 +67,17 @@ def count_cum_wins(df):
 	df['win_value'] = df['win_value'].str.replace("L", "0")
 	df['win_value'] = df['win_value'].str.replace("0-wo", "0")
 	df['win_value'] = df['win_value'].str.replace("1-wo", "1")
+	df['win_value'] = df['win_value'].str.replace("1 &X", "1")
+	df['win_value'] = df['win_value'].str.replace("0 &X", "0")
+	df['win_value'] = df['win_value'].str.replace("1 &V", "1")
+	df['win_value'] = df['win_value'].str.replace("0 &V", "0")
+	df['win_value'] = df['win_value'].str.replace("1 &H", "1")
+	df['win_value'] = df['win_value'].str.replace("0 &H", "0")
+	df['win_value'] = df['win_value'].str.replace("1 &Y", "1")
+	df['win_value'] = df['win_value'].str.replace("0 &Y", "0")
+	df['win_value'] = df['win_value'].str.replace("1 &P", "1")
+	df['win_value'] = df['win_value'].str.replace("0 &P", "0")
+	df['win_value'] = df['win_value'].str.replace("T", "0")
 	df['win_value'] = pd.to_numeric(df['win_value'])
 	df['Wins_last_10'] = df['win_value'].rolling(min_periods=10, window=10).sum()
 	return df
@@ -79,6 +93,7 @@ def calc_run_diff(df):
 	"""
 	calculates the running run differential per game
 	"""
+	df[['runs_scored', 'runs_allowed']] = df[['runs_scored', 'runs_allowed']].apply(pd.to_numeric)
 	df['cum_runs_scored'] = df['runs_scored'].cumsum()
 	df['cum_runs_allowed'] = df['runs_allowed'].cumsum()
 	df['run_differential'] = df['cum_runs_scored'] - df['cum_runs_allowed']
