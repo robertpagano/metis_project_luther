@@ -29,7 +29,7 @@ My objectives for this project were to figure out as much as I could about atten
 - Manipulate the data to be able to measure how well a team was doing throughout the year and have this updated on a game by game basis
 - Use linear regression modelling to predict attendance level given a set of features from the data
 
-I will break out the above in more detail below, where I will explain how I acquired the data, what types of features I then created, and how I made decisions around modeling.
+I will break out the above in more detail below, where I will explain how I acquired the data, what types of features I then created, and how I made decisions around modeling. Please see the readme if you would like specific descriptions of the files in my repo.
 
 
 

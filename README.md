@@ -42,7 +42,7 @@ Metis Project 2: Project Luther - Web Scraping and Linear Regression
 
 
 
-### Code, data, and notebooks
+###  If you wou fdffdgdfgdfCode, data, and notebooks
 
 #### Code files
 
@@ -54,7 +54,7 @@ Metis Project 2: Project Luther - Web Scraping and Linear Regression
 - Final Regressions.ipnyb - here is my final modelling file. This includes plots of my residual analysis, and a few other EDA type plots
 - Merged MLB game data - 2014-2018 V3 FINAL.ipnyb - here is where I prepared my data files for my model file.
 - bbref scraper-FINAL.ipnyb - this is where I tested and completed my scraping of baseball reference 
-- EDA work.ipnyb - EDA file
+- gEDA work.ipnyb - EDA file
 
 #### Data files
 
