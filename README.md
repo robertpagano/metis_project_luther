@@ -42,7 +42,7 @@ Metis Project 2: Project Luther - Web Scraping and Linear Regression
 
 
 
-###  If you wou fdffdgdfgdfCode, data, and notebooks
+###  Code, data, and notebooks
 
 #### Code files
 
