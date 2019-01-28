@@ -72,5 +72,5 @@ Metis Project 2: Project Luther - Web Scraping and Linear Regression
 ### Summary files
 
 - **Forecasting MLB Game Attendance.pdf** - Presentation Slides
-- **Forecasting MLB Game Attendance - Writeup ** - High level written summary of project
+- **Forecasting MLB Game Attendance - Writeup** - High level written summary of project
 - **Project Luther - Proposal** - Original proposal for project idea
